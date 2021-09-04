@@ -1,14 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 <head> 
     <!-- khung cau truc chuan theo html5 -->
     <!-- noi dinh nghia cac thong quan trong cua website -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="hoc online, hoc php, hoc lap trinh web" />
+    <meta name="author" content="T3h-Ha Noi"/>
+    <meta name="keywords" content="htm,css,js,php,mysql"/>
+    <title>Lap Trinh Frontend - T3H</title>
+    <!-- favicon / hien thi anh len tabar trinh duyet -->
+    <link rel="icon" sizes="57x57" type="image/png" href="images/icon-57x75.png">
+    <!-- nhung css ngoai tuyen -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <!-- code css noi tuyen -->
+    <style type="text/css">
+        /* code css in here */
+    </style>
+    <!-- Se hien thi thong bao nay ra ngoai trinh duyet, khi ma trinh duyet ko ho tro JS-->
+    <noscript> Trinh duyet chua ho tro javascript </noscript>
 </head>
-<body>
-    
+<br>
+    <!-- noi hien thi noi dung ra ngoai trinh duyet -->
+    <!-- chia cac nhom the HTML cung chung tinh chat, cong dung lai voi nhau -->
+    <!-- 1/ nhom the HTML la viec voi ban ban, tieu de, dinh dang van ban tieu de -->
+    <h1 id="title" class="title title2">The tieu de to nhat</h1>
+    <h3 id="title2" class="title2">tieu de h3</h3>
+    <h6>the tieu de be nhat</h6>
+    <!-- <h7> day la the tieu de h7</h7> -->
+    <p>Bí thư Thành ủy <em>Nguyễn Văn Nên</em> lãnh đạo, chỉ đạo toàn diện công tác phòng, chống dịch ở thành phố và theo dõi, chỉ đạo <mark> Q.Thủ Đức</mark>  và <i>quận Bình Tân Binh</i>.</p>
+    <p><b> AAAAA </b></p>
+    <p><strong> AAAAA </strong></p>
+    <!-- html block -->
+    <!-- html inline -->
+
+    <!-- 2/ html lien ket - sieu lien ket -->
+    <a target="_blank" title="vnexpress" href="http://vnexpress.net"> vnexpress </a>
+    <a target="_blank" title="facebook" href="http://facebook.com"> facebook </a>
+    <a target="_blank" title="kenh14" href="http://kenh14.vn"> kenh14 </a>
+    <!-- Neo link / anchor link -->
+    <br/>
+    <a href="#title"> go to tag h1 </a>
+    <br/>
+    <a href="javascript:void(0);"> ko co hieu ung link di dau ca </a>
+
+    <!-- 3/ html danh sach  -->
+    <!-- lam menu / navbar -->
+    <!-- danh sach ko co thu tu -->
+    <ul>
+        <li><a href="#"> AAAAAA </a></li>
+        <li><a href="#"> BBBBBB </a></li>
+        <li><a href="#"> CCCCCC </a></li>
+    </ul>
+    <!-- danh sach co thu tu -->
+    <ol>
+        <li><a href="#"> AAAAAA </a></li>
+        <li><a href="#"> BBBBBB </a></li>
+        <li><a href="#"> CCCCCC </a></li>
+    </ol>
+
+    <!-- 4/ HTML bang bieu du lieu -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>Ma SV</th>
+                <th>Ho Ten</th>
+                <th>Que Quan</th>
+                <th>Ngay Sinh</th>
+                <th>Email</th>
+                <th>So Dien Thoai</th>
+                <th>Hoc Bong</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr bgcolor="yellow" class="bg">
+                <td align="center">113</td>
+                <td> Van Teo</td>
+                <td> Ha noi</td>
+                <td>2000</td>
+                <td>vanteo@gmail.com</td>
+                <td>0932323</td>
+                <td>2000</td>
+            </tr>
+            <tr class="bg" bgcolor="yellow">
+                <td>114</td>
+                <td> Van Ty</td>
+                <td> Ha nam</td>
+                <td rowspan="2">1999</td>
+                <td>vanty@gmail.com</td>
+                <td>093323</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td>115</td>
+                <td> Van Tit</td>
+                <td> Hai Duong</td>
+                <!-- <td>1999</td> -->
+                <td>vantit@gmail.com</td>
+                <td>099323</td>
+                <td>3000</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">Tong tien HB</td>
+                <td>8000</td>
+            </tr>  
+        </tfoot>
+    </table>
+
+    <!-- 5/ HTMl Media - multi media -->
+    <img title="bi thu thanh uy TPHCM Nguyen Van Nen" src="images/nguyen-van-nen.jpg" alt="bi thu thanh uy TPHCM Nguyen Van Nen" width="200" height="200" />
+    <!-- audio -->
+    <br/><br/>
+    <audio controls loop autoloop buffering>
+        <source src="audio/horse.ogg" type="audio/ogg">
+        <source src="audio/horse.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    </br><br/>
+    <!-- video -->
+    <video width="320" height="240" controls loop autoloop buffering>
+        <source src="video/mov_bbb.mp4" type="video/mp4">
+        <source src="video/mov_bbb.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+    </video>
+    <!-- HTML YouTube -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZijnSFqzWFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br/><br/>
+    <!-- HTML Do hoa -->
+    <canvas style="width: 500px; height: 500px; border: 1px solid red"></canvas>
+    <!-- phai su dung javascript de thao tac cac che do hoa hoa len the canvas -->
+    <!-- game HTML5 -->
+
+    <!-- 6/ HTML Form -->
+    <form action="server/login.php" method="post">
+        <!-- gui du lieu di -->
+        <label>username:</label>
+        <input type="text" required maxlength="10"/>
+        <br><br>
+        <label>password:</label>
+        <input type="password" minlength="8"/>
+        <br><br>
+        <label>Number:</label>
+        <input type="number"/>
+        <br><br>
+        <label>URL:</label>
+        <input readonly type="url" value="http://localhost/abc">
+        <br><br>
+        <label>Email:</label>
+        <input disabled type="email" value="test@gmail.com" />
+        <br><br>
+        <label>color:</label>
+        <input type="color"" />
+        <br><br>
+        <label>Date:</label>
+        <input type="date"" />
+        <br><br>
+        <label>Note:</label>
+        <textarea rows="5" col="20"></textarea>
+        <br><br>
+        <label>Chon ngay sinh</label>
+        <select>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3" selected>03</option>
+            <option value="4">04</option>
+        </select>
+        <br><br>
+            <label>Chon gioi tinh</label>
+            <br>
+            <span>Nam</span>
+            <input checked type="radio" name="gender"/>
+            <br>
+            <span>Nu</span>
+            <input type="radio" name="gender"/>
+        <br><br>
+        <br><br>
+            <label>Chon Do tuoi</label>
+            <br>
+            <span>Tuoi tu 18 - 30</span>
+            <input checked type="checkbox"/>
+            <br>
+            <span>Tuoi tu 30 - 35</span>
+            <input type="checkbox"/>
+        <br><br>
+        <button type="submit"> submit</button>
+    </form>
+
+    <!-- 7/ HTML layout -->
+    <!-- CSS -->
 </body>
 </html>

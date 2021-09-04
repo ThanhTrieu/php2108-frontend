@@ -1,0 +1,55 @@
+/* cu phap comment css */
+/* import file css */
+@import 'style.css';
+
+/* Universal selectors  */
+* {
+    /* selector nay tac dong vao moi phan tu trong van ban HTML */
+    /* thong thuong dc dung trong viec reset css cho trinh duyet */
+    /* dam bao khi hien thi giao dien tren cac trinh duyet khac nhau thi se dong bo - dong nhat ve giao dien (khong co su khac biet) */
+    /* can reset nhung thuoc tinh nao ??? */
+    margin: 0;
+    padding: 0;
+}
+
+/* id selector */
+/* #title {
+    color: yellow;
+} */
+
+/* class selector */
+.title {
+    color: blue;
+}
+
+/* HTML selector */
+h1.title {
+    /* dinh nghia thuoc tinh va gia tri */
+    color: red;
+}
+/* Attribute selector */
+input[type='text'] {
+    border: 2px solid red;
+}
+/* tim kiem chinh xac 1 trong nhieu gia tri cua thuoc tinh */
+input[class~='input-pass'] {
+    border: 2px solid blue;
+}
+input[class*='pass'] {
+    border: 2px solid yellow;
+}
+/* ket thuc boi ky tu nao trong gia tri cua thuoc tinh */
+a[href$='.net'] {
+    color: red;
+}
+a[href^='http'] {
+    color: green;
+}
+a[class|='link'] {
+    color: yellow;
+}
+
+/* selector phan cap - no se cho mh biet, mo phong lai duoc cau truc cua van ban tai lieu HTML */
+p.my_title ~ p {
+    color: red;
+}
