@@ -1,0 +1,93 @@
+html {
+    font-size: 62.5%;
+    /* 10px = 1rem */
+    /* 16px = 1rem = 100% */
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+div.container :first-child {
+    color: red;
+}
+div.container :last-child {
+    color: blue;
+}
+
+div.container :first-of-type {
+    color: yellow;
+}
+
+div.container :last-of-type {
+    color: green;
+}
+
+div.container :nth-child(4) {
+    color: pink;
+}
+
+div.container :nth-of-type(4) {
+    color: violet;
+}
+
+div.container :nth-last-child(3) {
+    color: brown;
+}
+
+div.container :nth-last-of-type(3) {
+    color: blueviolet;
+}
+
+div.box :only-child {
+    color:red;
+}
+input[type='text']:focus {
+    width: 50rem;
+    height: 3rem;
+    border: 1px solid red;
+    outline: none;
+}
+input[type='checkbox']:checked {
+    width: 200px;
+    height: 200px;
+}
+a.link:active {
+    color: yellow;
+}
+a.link:visited {
+    color: red;
+}
+a.link:link {
+    color: green;
+}
+a.link:hover {
+    color: violet;
+}
+div.content p.text::first-letter {
+    color: red;
+    font-size: 100px;
+}
+div.content p.text::first-line {
+    color: green;
+}
+div.content p.text::before {
+    /* content: 'Hello'; */
+    content: url('../images/icon-57x75.png');
+}
+div.content p.text::after {
+    content: url('../images/icon-57x75.png');
+}
+
+div.content p.text::selection {
+    color: yellow;
+}
+
+/* 16px = 1rem = 100 % */
+/* 1rem = 10px = 62.5% */
+
+div.container {
+    font-size: 5rem;
+}
+div.container > h1 {
+    font-size: 0.5rem;
+}
+

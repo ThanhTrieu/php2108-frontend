@@ -1,0 +1,26 @@
+*,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+div.box {
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+}
+div.child-2 {
+    margin-top: 50px;
+}
+
+
+/* div.child-1 {
+    padding-top: 5px;
+    padding-left: 5px;
+} */
+
+p.text {
+    padding-top: 5px;
+    padding-left: 5px;
+    border: 1px solid red;
+} 
