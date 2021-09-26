@@ -1,0 +1,55 @@
+/* setting css basic */
+*,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    /* 10px = 1rem */
+}
+/* khai bao bien css */
+:root {
+    --bgNav: #282828;
+    --textColor: #FD7437;
+    --textHoverColor: #e6ffff;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+ul li {
+    list-style-type: none;
+}
+.nav {
+    width: 100%;
+    background-color: var(--bgNav);
+    height:4rem;
+    border-top: 3px solid var(--textColor);
+    display: flex;
+}
+.nav__container {
+    width: 98rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.nav__list {
+    display: flex;
+    justify-content: flex-start;
+	align-items: center;
+}
+.nav__item {
+    padding: 0px 2rem;
+}
+.nav__link {
+    color: var(--textColor);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.nav__link:hover {
+    color: var(--textHoverColor);
+}

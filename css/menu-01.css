@@ -1,0 +1,59 @@
+/* setting css basic */
+*,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    /* 10px = 1rem */
+}
+/* khai bao bien css */
+:root {
+    --widthNav: 20rem;
+    --bgNav: #e6f3ff;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+ul li {
+    list-style-type: none;
+}
+.nav {
+    width: var(--widthNav);
+    margin: 5px 0px 0px 10px;
+    background-color: var(--bgNav);
+}
+.nav__item {
+    padding: 10px 0px;
+    border-bottom: 1px solid #CCC;
+    position: relative;
+}
+.nav__item:last-child {
+    border-bottom: none;
+}
+.nav__link {
+    margin-left: 0.5rem;
+    color:#00294d;
+}
+.nav__item:hover {
+    background-color: #000e1a;
+}
+.nav__item:hover > .nav__link {
+    color:#e6ffff;
+}
+/* menu dropdown */
+.nav__dropdown {
+    display: none;
+    width: var(--widthNav);
+    background-color: var(--bgNav);
+    position: absolute;
+    left:100%;
+    top: 0;
+}
+.nav__item:hover > .nav__dropdown {
+    display: block;
+}
