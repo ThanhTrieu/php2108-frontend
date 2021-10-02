@@ -43,6 +43,8 @@ ul li {
 }
 .nav__item {
     padding: 0px 2rem;
+    position: relative;
+    line-height: 4rem;
 }
 .nav__link {
     color: var(--textColor);
@@ -52,4 +54,22 @@ ul li {
 }
 .nav__link:hover {
     color: var(--textHoverColor);
+}
+/* menu dropdown */
+.nav__table {
+    display: none;
+    min-width: 50rem;
+    background-color:var(--bgNav);
+    position:absolute;
+    top: 2.6rem;
+    left: 0;
+}
+.nav__item:hover > .nav__table {
+    display: table;
+}
+.nav__table > .nav__table--list {
+    display: table-row;
+}
+.nav__table > .nav__table--list > .nav__item {
+    display: table-cell;
 }
