@@ -88,3 +88,173 @@ input, textarea, button {
     font-weight: 700;
     font-size: 1.3rem;
 }
+/* css feature */
+.feature__header {
+    background-color: var(--bg-light);
+    text-align: center;
+    padding: 11rem 1.5rem 14rem;
+}
+.feature__img--top {
+    margin: 0 auto 3.5rem;
+}
+.feature__heading {
+    font-size: 1.8rem;
+    line-height:1.6;
+    text-transform: uppercase;
+    color: var(--heading-color);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    letter-spacing: 0.5rem;
+}
+.feature__header--desc {
+    font-size: 1.8rem;
+    line-height:1.6;
+    color: var(--text-color);
+    margin: 0 auto;
+    max-width: 108.8rem;
+}
+/* css feature list */
+.feature__item {
+    display: flex;
+    flex-flow: row wrap;
+    height: 60rem;
+    /* ko cho xuat hien thanh scroll */
+    overflow: hidden;
+}
+.feature__item--img {
+    width: 67%;
+    position: relative;
+}
+.feature__item--content {
+    width: 33%;
+}
+.feature__item .img_bg {
+    height:100%;
+    width: 100%;
+    object-fit: cover;
+}
+.feature__item .img__brand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+.feature__item--content {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.feature__item--content-top {
+    background-color:  var(--bg-white);
+    padding: 0 7rem;
+    height: 67%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.feature__item--text {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: justify;
+    position: relative;
+    padding-bottom: 4rem;
+}
+.feature__item--content-bottom {
+    height: 33%;
+}
+/* doi vi tri hien thi cho 2 cot cua li thu 2 */
+.feature__item:nth-child(2) .feature__item--img {
+    order: 2;
+}
+/* css cho li cuoi cung */
+.feature__item:last-child > .feature__item--img {
+    width: 33%;
+}
+.feature__item:last-child > .feature__item--content {
+    width: 34%;
+}
+/* css border bottom text */
+.feature__item--text::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5.5rem;
+    height: 2px;
+    background-color: #d7d7d7;
+}
+/* css arrow */
+.feature__item--content-top::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--bg-white);
+    z-index: 10;
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+/* css twitter */
+.twitter {
+    background-color:  var(--bg-light);
+    padding: 12.5rem 1.5rem 6.8rem;
+    text-align: center;
+}
+.twitter__icon {
+    color: #56c7ee;
+    font-size: 3.5rem;
+    margin-bottom: 3.5rem;
+}
+.twitter__heading {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+}
+.twitter__location, .twitter__author {
+    color: var(--heading-color);
+    font-weight: bold;
+}
+.twitter__time {
+    color: var(--text-color);
+    font-weight: 300;
+    padding-left: 1.5rem;
+    margin-left: 1.5rem;
+    position: relative;
+}
+.twitter__time::before {
+    content: "/";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.twitter__content {
+    font-size: 2.4rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    font-style: italic;
+    margin: 0 auto 10rem;
+    max-width: 104.5rem;
+}
+.twitter__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.twitter__pagination--item {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--text-color);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.twitter__pagination--item.is__active {
+    background-color: var(--text-color);
+}
