@@ -52,7 +52,7 @@ input, textarea, button {
 /* css for header */
 .header {
     height: 80rem;
-    background-image: url('../images/logo-yebo.jpg');
+    background-image: url('../images/img-bg-header.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
