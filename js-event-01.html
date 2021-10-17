@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Event - 01</title>
+</head>
+<body>
+    <h1>JS Event - 01</h1>
+    <button onclick="clickMe();" >Click me</button>
+    <br/>
+    <input type="text" onblur="myBlur();" onfocus="myFocus();" />
+    <br/>
+    <input type="text" onchange="myChange(this);" />
+    <br/>
+    <input type="text" onkeydown="myKeyDown();" onkeypress="myKeyPress();" onkeyup="myKeyUp(event);"/>
+    <br/>
+    <img src="images/icon1.png" onmouseover="myMouseOver(this);" onmouseout="myMouseOut(this);" />
+    <br/>
+    <img src="images/icon2.png" onmousedown="myMouseDown(this)" onmouseout="myMouseOutV2(this);" />
+    <!-- bat su kien Click vao button click me -->
+    <script type="text/javascript">
+        // viet ngay code js o day
+        // dinh nghia function trung voi ten ma goi event o the html
+        function myMouseDown(obj) {
+            obj.src = 'images/img10.jpg';
+        }
+
+        function myMouseOutV2(obj) {
+            obj.src = 'images/icon2.png';
+        }
+
+        function myMouseOver(obj) {
+            obj.width = 600;
+            obj.height = 600;
+        }
+
+        function myMouseOut(obj) {
+            obj.width = 60;
+            obj.height = 60;
+        }
+
+        function myKeyDown() {
+            console.log('tay ban vua nhan xuong ban phim');
+        }
+        function myKeyUp(event) {
+            console.log('tay da buong ban phim');
+            console.log(event.keyCode);
+            if(event.keyCode === 13){
+                alert('ban vua go phim enter')
+            }
+        }
+
+        function myKeyPress() {
+            console.log('tay dang giu ban phim');
+            
+        }
+
+        function clickMe() {
+            alert("Hello you");
+        }
+        function myBlur() {
+            console.log("su kien blur");
+        }
+        function myFocus() {
+            console.log("su kien focus");
+        }
+        function myChange(obj) {
+            console.log(obj.value); // lay gia tri - khai bao gia tri mac dinh
+        }
+    </script>
+</body>
+</html>

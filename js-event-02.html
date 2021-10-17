@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Event 02</title>
+    <style type="text/css">
+        .btn {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title" class="text__title"> JS Dom - event 02</h1>
+    <button id="btnClick" class="btn">Click me</button>
+    <button class="btn"> Click me 2</button>
+    <br/>
+    <img src="images/img10.jpg" class="img" />
+    <div class="box"></div>
+    <br/><br/><br/>
+
+    <!-- tinh tong 2 so -->
+    <!-- kiem tra du lieu dau vao, thong bao loi -->
+    <!-- hien thi ket qua -->
+    <h2>Tong 2 so </h2>
+    <label> So A</label>
+    <input type="text" id="hsa" />
+    <p id="err_hsa"></p>
+    <br/>
+    <label> So B</label>
+    <input type="text" id="hsb" />
+    <p id="err_hsb"></p>
+    <br/>
+    <button id="btnSum"> Tinh tong</button>
+
+    <script type="text/javascript">
+        let sum = document.getElementById('btnSum');
+        sum.addEventListener('click', function(){ 
+            // lay ra noi dung ma nguoi dung nhap vao 2 o input
+            // 1 -  truy cap vao 2 phan tu
+            let hsa = document.getElementById('hsa');
+            let hsb = document.getElementById('hsb');
+            // 2 lay noi dung
+            let valHsa = hsa.value.trim(); // trim : bo khoang trang 2 dau
+            //console.log(valHsa);
+            let valHsb = hsb.value.trim();
+
+            // kiem tra du lieu dau vao
+            // bat buoc nguoi phai nhao so
+            let chkHsa = null;
+            let chkHsb = null;
+
+            let errHsa = document.getElementById('err_hsa');
+            let errHsb = document.getElementById('err_hsb');
+
+            // validate so A
+            if(!isNaN(valHsa) && valHsa.length > 0){
+                // nguoi dung nhap la so
+                // an het cac thong bao loi va hieu ung loi
+                chkHsa = true;
+                errHsa.innerHTML = '';
+                errHsa.style.color = '';
+                hsa.style.border = '';
+            } else {
+                // khong nhap la so
+                // thong bao loi - tao hieu ung loi
+                errHsa.innerHTML = 'Vui long nhap so';
+                errHsa.style.color = 'red';
+                hsa.style.border = '1px solid red';
+                chkHsa = false;
+            }
+
+            // validate so B
+
+
+            // tinh tong ???
+            if(chkHsa && chkHsb){
+                // tinh tong
+                // ep cac gia tri ve so roi tinh
+                // hien thi ket qua
+            } else {
+                // an het cac thong bao ve ket qua
+            }
+
+         });
+
+        // truy cap vao the h1 thong qua id
+        let title = document.getElementById("title"); // tra ve luon phan tu muon truy cap (khong tra ve mang)
+        console.log(title);
+
+        // truy cap vao phan tu thong qua class
+        let btn = document.getElementsByClassName('btn'); // tra ve mot mang chua tat cac phan tu chung class
+        console.log(btn[0], btn[1]);
+
+        // truy cap thong qua ten the
+        let btn2 = document.getElementsByTagName('button'); // tra ve mot mang chua tat cac phan tu cung ten the
+        console.log(btn2[0], btn2[1]);
+
+        // truy cap thong qua selector css
+        let btn3 = document.querySelector('.btn'); // tra ve phan tu dau tien co selector css
+        console.log(btn3);
+
+        let btn4 = document.querySelectorAll('.btn'); // tra ve tat cac phan tu co selector css
+        console.log(btn4[0], btn4[1]);
+
+        console.log('------------------------------------');
+        // bat su kien va gan su kien cho phan tu thong thong qua DOM
+        // 1- can truy cap vao phan tu do
+        let btnClick = document.getElementById('btnClick');
+        // 2 gan su kien - bat su kien
+        /*
+        btnClick.onclick = function() {
+            alert('Hi you');
+        }
+        */
+        btnClick.addEventListener('click', function() {
+            //alert('Hello you');
+            // lay noi dung cua the h1
+            // truy cap vao the h1
+            let titleDocs = document.getElementById('title');
+            // lay noi dung
+            let content = titleDocs.innerHTML;
+            console.log(content);
+            // thay luon noi dung h1
+            titleDocs.innerHTML = 'Dang hoc JS DOM - Event';
+
+
+            let img = document.getElementsByClassName('img');
+            /*
+            img[0].src = "images/img11.jpg";
+            img[0].width = 650;
+            img[0].height = 650;
+            */
+           img[0].setAttribute('src', 'images/img11.jpg');
+           img[0].setAttribute('width', 650);
+           img[0].setAttribute('height', 650);
+
+           let box = document.getElementsByClassName('box');
+           // css bang js cho phan tu
+           box[0].style.width = '500px';
+           box[0].style.height = '500px';
+           box[0].style.backgroundColor = 'yellow';
+           box[0].style.border = '1px solid red';
+           box[0].style.marginTop = '30px';
+        });
+    </script>
+</body>
+</html>
