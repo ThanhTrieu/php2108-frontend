@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<body>
+    <h1 id="result">0</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script type="text/javascript">
+        let showTime = document.getElementById('result');
+        let btnStart = document.getElementById('start');
+        let btnStop = document.getElementById('stop');
+        let count = 0;
+        let time = null;
+        btnStart.onclick = function() {
+            // thuc thi lap lai 1 hanh dong nao do theo 1 chu ky thoi gian
+            btnStart.disabled = true;
+            btnStop.disabled = false;
+            time = setInterval(function(){
+                count++;
+                showTime.innerHTML = count;
+            }, 1000);
+        }
+        btnStop.onclick = function() {
+            btnStart.disabled = false;
+            btnStop.disabled = true;
+            // clear dung gia tri ma setInterval tao ra
+            clearInterval(time);
+        }
+
+    </script>
+</body>
+</html>

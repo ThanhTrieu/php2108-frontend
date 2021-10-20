@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS BOM </title>
+</head>
+<body>
+    <h1> JS - BOM (Browser object model)</h1>
+    <button id="open"> open window </button>
+    <button id="close"> close window </button>
+    <br/><br/>
+    <button id="reload"> reload page </button> 
+    <br/><br/>
+    <button id="url"> go to page </button>
+    <input type="url" id="urlPage" placeholder="enter url" />
+
+    <br/><br/>
+    <a href="js-event-04.html"> go to page js-event-04.html</a>
+    <br/><br/>
+    <button id="forwardPage"> Forward page </button>
+
+    <script type="text/javascript">
+        // code js o day 
+
+        let btnForward = document.getElementById('forwardPage');
+        btnForward.onclick = function(){
+            history.forward();
+        }
+
+        // 1- xac dinh dinh kich thuoc khung lam viec cua trinh duyet
+        let wB = window.innerWidth;
+        let hB = window.innerHeight;
+        console.log(wB, hB);
+
+        let button = document.getElementById('open');
+        button.addEventListener('click', function(){
+            // open 1 new window
+            window.open('https://vnexpress.net','vnexpress', 'width=300px,height=300px');
+        });
+
+        let btnClose = document.getElementById('close');
+        btnClose.onclick = function(){
+            // close window
+            window.close();
+        }
+
+        let btnReload = document.getElementById('reload');
+        btnReload.onclick = function() {
+            // reload page - refesh page
+            window.location.reload(true); // true: load page ko co cache tu trinh duyet
+        }
+
+        let btnUrl = document.getElementById('url');
+        url.addEventListener('click',function(){
+            let url = document.getElementById('urlPage').value.trim();
+            // value: lay gia tri tu o input
+            // trim : xoa khoang trang 2 dau du lieu
+            // console.log(url);
+            if(url !== ''){
+                // di toi trang nao do
+                window.location.href = url;
+            }
+        });
+
+        // get width and height of screen
+        let wScreen = screen.width;
+        let hScreen = screen.height;
+        console.log(`Width screen : ${wScreen} - Height screen : ${hScreen}`);
+
+    </script>
+</body>
+</html>

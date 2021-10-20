@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do vui cho be </title>
+    <style type="text/css">
+        div.question {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="warpper">
+        <h1> Do vui danh cho be !</h1>
+        <!-- cau hoi so 1 -->
+        <div id="question-1" class="question-1">
+            <!-- hinh anh cau hoi danh cho be -->
+            <div>
+                <img src="images/lion.jpg" width="50%" height="50%" />
+                <h2> Day la con vat gi ?</h2>
+            </div>
+            <!-- dap an cau hoi -->
+            <div>
+                <p>
+                    <input value="0" class="answer-1" id="answer-1-1" type="radio" name="answer-1" />
+                    <label for="answer-1-1">Con Ho</label>
+                </p>
+                <p>
+                    <input value="0" class="answer-1" id="answer-1-2" type="radio" name="answer-1" />
+                    <label for="answer-1-2">Con Voi</label>
+                </p>
+                <p>
+                    <input value="1" class="answer-1" id="answer-1-3" type="radio" name="answer-1" />
+                    <label for="answer-1-3">Con Su Tu</label>
+                </p>
+                <p>
+                    <input value="0" class="answer-1" id="answer-1-4" type="radio" name="answer-1" />
+                    <label for="answer-1-4">Con Meo</label>
+                </p>
+                <br/>
+                <button onclick="checkAnswer(this,'1');"> Kiem tra dap an</button>
+                <br/><br/><br/>
+            </div>
+        </div>
+        <!-- ./ het cau hoi so 1 -->
+
+        <!-- cau hoi so 2 -->
+        <div id="question-2" class="question-2 question">
+            <!-- hinh anh cau hoi danh cho be -->
+            <div>
+                <img src="images/but-chi.jpg" width="50%" height="50%" />
+                <h2> Day do vat gi ?</h2>
+            </div>
+            <!-- dap an cau hoi -->
+            <div>
+                <p>
+                    <input value="0" class="answer-2" id="answer-2-1" type="radio" name="answer-2" />
+                    <label for="answer-2-1">Quyen sach</label>
+                </p>
+                <p>
+                    <input value="1" class="answer-2" id="answer-2-2" type="radio" name="answer-2" />
+                    <label for="answer-2-2">But chi</label>
+                </p>
+                <p>
+                    <input value="0" class="answer-2" id="answer-2-3" type="radio" name="answer-2" />
+                    <label for="answer-2-3">Xe dap</label>
+                </p>
+                <p>
+                    <input value="0" class="answer-2" id="answer-2-4" type="radio" name="answer-2" />
+                    <label for="answer-2-4">Cai Mu</label>
+                </p>
+                <br/>
+                <button onclick="checkAnswer(this,'2');"> Kiem tra dap an</button>
+                <br/><br/><br/>
+            </div>
+        </div>
+        <!-- ./ het cau hoi so 2 -->
+    </div>
+    <script type="text/javascript">
+        let count = 0; // toan cuc - global
+        function checkAnswer(obj, id) {
+            // obj : this : button
+            // id: cau hoi
+            
+            // kiem tra xem be chon dap an nao ?
+            let answers = document.getElementsByClassName(`answer-${id}`); // lay ra tat cau tra loi
+            // console.log(answers); // array HTMLCollection
+
+            let flagCheckAnswer = false;
+            for(let i = 0; i < answers.length; i++) {
+                // console.log(answers[i]); // lay ra cac the input
+                // kiem tra chon dap an nao ?
+                if(answers[i].checked){
+                    //console.log(answers[i]); // dung dap an be da chon
+                    // kiem tra dap an dung hay sai ?
+                    if(answers[i].value === '1'){
+                        flagCheckAnswer = true;
+                        break;// thoat luon vong lap
+                    }  
+                }
+            }
+
+            if(flagCheckAnswer){
+                count = 0;
+                // cau tra loi dung
+                alert('chuc mung be da tra loi dung !');
+                // khoa cac cau tra loi lai (khong cho be bam chon lai dc dap an nua)
+                // an bo nut kiem tra dap an cua cau hoi vua tra loi dung
+                // hien thi cau hoi tiep theo
+                for(let i = 0; i < answers.length; i++) {
+                    answers[i].disabled = true;
+                }
+                obj.style.display = 'none';
+                // lay ra id cua cau hoi tiep theo
+                let nextId = Number.parseInt(id);
+                nextId += 1;
+
+                if(document.getElementById(`question-${nextId}`)){
+                    // kiem tra xem ko phai la cau hoi cuoi cung thi moi hien thi
+                    document.getElementById(`question-${nextId}`).style.display = 'block';
+                }
+            } else {
+                count += 1;
+                //console.log(count);
+                if(count >= 2){
+                    // chi dc phep tra loi sai 2 lan
+                    // xu ly logic gi do o day
+                    alert('Be tra loi sai qua 2 lan roi');
+                } else {
+                    // cau tra loi sai
+                    alert('Dap an cua be chua chinh xac');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

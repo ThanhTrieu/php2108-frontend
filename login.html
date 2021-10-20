@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" />
+            <p id="error_username"></p>
+        </div>
+        <br/>
+        <div>
+            <label for="password">password</label>
+            <input type="password" name="password" id="password" />
+            <p id="error_password"></p>
+        </div>
+        <br/>
+        <button type="button" id="btnLogin"> Login </button>
+    </form>
+    <script type="text/javascript">
+        let btnLogin = document.getElementById("btnLogin");
+        btnLogin.addEventListener("click",function(){
+            let username = document.getElementById("username");
+            let password = document.getElementById("password");
+            let errUser = document.getElementById("error_username");
+            let errPass = document.getElementById("error_password");
+
+            // get value username and password
+            let user = username.value.trim();
+            let pass = password.value.trim();
+            // console.log(user, pass);
+
+            // validate data - user and pass
+            if(user === ''){
+                errUser.innerHTML = 'Vui long nhap username';
+                errUser.style.color = 'red';
+            } else {
+                errUser.innerHTML = '';
+            }
+
+            if(pass === ''){
+                errPass.innerHTML = 'Vui long nhap mat khau';
+                errPass.style.color = 'red';
+            } else {
+                errPass.innerHTML = '';
+            }
+
+            // buoc nay sau nay backend lam
+            if(user === 'admin' && pass === '123'){
+                // cho vao trang chu
+                window.location.href = 'home.html';
+            } else {
+                alert('Tai khoan khong ton tai');
+            }
+        });
+    </script>
+</body>
+</html>
