@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Cart</title>
+</head>
+<body>
+    
+    <div class="warpper">
+        <h1> Thong tin gio hang</h1>
+        <table width="70%" border="1" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th> San pham</th>
+                    <th> Hinh anh</th>
+                    <th> So luong</th>
+                    <th> Don gia</th>
+                    <th> Thanh tien</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Iphone 11</td>
+                    <td width="25%">
+                        <img src="https://cdn.tgdd.vn/Products/Images/42/153856/iphone-xi-do-600x600.jpg" width="50%" />
+                    </td>
+                    <td>
+                        <input class="qty" type="number" value="1" />
+                    </td>
+                    <td class="price">16999000</td>
+                    <td class="money">16999000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Iphone 13</td>
+                    <td width="25%">
+                        <img src="https://cdn.tgdd.vn/Products/Images/42/223602/iphone-13-midnight-2-600x600.jpg" width="50%" />
+                    </td>
+                    <td>
+                        <input class="qty" type="number" value="1" />
+                    </td>
+                    <td class="price">24999000</td>
+                    <td class="money">24999000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Iphone XR</td>
+                    <td width="25%">
+                        <img src="https://cdn.tgdd.vn/Products/Images/42/190325/iphone-xr-hopmoi-den-600x600-2-600x600.jpg" width="50%" />
+                    </td>
+                    <td>
+                        <input class="qty" type="number" value="1" />
+                    </td>
+                    <td class="price">13499000</td>
+                    <td class="money">13499000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td colspan="5">Tong tien</td>
+                <td id="totalMoney">55497000</td>
+            </tfoot>
+        </table>
+    </div>
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // ham khoi tao - doi load DOM HTML
+            // xu ly code JQ o day
+            $('input[class="qty"]').on('change', function(){
+                // bat su kien nguoi dung thay doi so luong mua
+                let self = $(this); // ???
+                // $(this): tro vao cai phan tu dang thao tac : input[class="qty"]
+                // lay ra so luong ma nguoi dung vua thay doi ???
+                let valQty = self.val().trim();
+                if(!isNaN(valQty) && valQty.length > 0){
+                    // nhap vao la so
+                    // gia tri van la kieu du lieu : string
+                    // ep ve so nguyen
+                    valQty = Number.parseInt(valQty);
+                    // quy uoc mua toi thieu 1 san pham - toi da la 10
+                    if(valQty <= 0 || valQty > 10){
+                        valQty = 1;
+                    }  
+                    
+                    // can lay duoc don gia tuong ung cua san phan vua thay doi so luong mua - de tinh lai tien.
+                    // parent : tim phan tu cha
+                    let price = self.parent().next().text().trim();
+                    price = Number.parseFloat(price);
+
+                    let money = valQty*price;
+                    // thay doi tien tuong ung cua san pham nay
+                    self.parent().next().next().text(money);
+
+                    // tinh lai tong tien
+                    // duyet qua tat ca cac cot td chua tien cua san pham
+                    let totalMoney = 0;
+                    $('td.money').each(function(){
+                        // $(this): chinh la cot td dang xu ly
+                        totalMoney += Number.parseFloat($(this).text().trim());
+                    });
+                    // cap nhat lai tong tien
+                    $('#totalMoney').text(totalMoney);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
