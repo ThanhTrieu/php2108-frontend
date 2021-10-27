@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Ghost</title>
+    <!-- su dung bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+</head>
+<body>
+    <!-- hien thi anh de tim su khac biet -->
+    <div class="container" id="findPicture">
+        <div class="row">
+            <div class="col my-3">
+                <h1 class="text-center">Tim su khac biet giua 2 buc tranh</h1>
+                <p class="text-center" id="time"> 0 </p>
+                <p class="text-center"> Ban co toi da 30s de tim het cac diem khac biet </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-fluid" src="images/thien-nhien.jpg" />
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="images/thien-nhien.jpg" />
+            </div>
+        </div>
+    </div>
+
+    <!-- hien thi hinh anh ma quy -->
+    <div class="container-fluid" style="display: none;" id="ghost">
+        <div class="row">
+            <div class="col">
+                <img class="img-fluid" src="images/funny-ghost.jpg" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery -->
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+        }
+        $(function(){
+            let time = 0;
+            let countTime = null;
+            let randomTime = getRandomInt(5,15);
+            //console.log(randomTime);
+            countTime = setInterval(function(){
+                time += 1;
+                $('#time').text(time);
+                if(time === randomTime){
+                    clearInterval(countTime);
+                    $('#findPicture').hide('fast');
+                    $('#ghost').show('fast');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

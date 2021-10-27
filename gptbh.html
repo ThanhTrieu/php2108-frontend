@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giai PTBH</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .warpper {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .input {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+            height: 25px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            outline: none;
+            padding: 3px 5px;
+        }
+
+        .btn {
+            padding: 8px;
+            background-color: blue;
+            color: white;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .text-title {
+            text-align: center;
+            margin: 5px 0px;
+        }
+        .error {
+            margin: 10px 0px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="warpper">
+        <h1 class="text-title"> Giai PTBH </h1>
+        <p class="error"></p>
+        <div class="input">
+            <label> HSA</label>
+            <input class="form-control hsa" type="text"/>
+        </div>
+        <div class="input">
+            <label> HSB</label>
+            <input class="form-control hsb" type="text"/>
+        </div>
+        <div class="input">
+            <label> HSC</label>
+            <input class="form-control hsc" type="text"/>
+        </div>
+        <button class="btn"> Giai PT</button>
+        <h3 class="result"></h3>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+
+        function validateInput(valInput, element, error) {
+            if(!isNaN(valInput) && valInput.length > 0){
+                $(element).removeAttr('style');
+                $(error).empty();
+                return true;
+            } else {
+                $(element).css({
+                    border: '1px solid red'
+                });
+                $(error).text('Vui long nhap so');
+                return false;
+            }
+        }
+
+        $(function(){
+            $('button[class="btn"]').on('click',function(){
+                // lay cac gia tri ma nguoi dung nhap vao
+                let valHsa = $('.hsa').val().trim();
+                let valHsb = $('.hsb').val().trim();
+                let valHsc = $('.hsc').val().trim();
+                let chkHsa = validateInput(valHsa, '.hsa', 'p.error');
+                let chkHsb = validateInput(valHsb, '.hsb', 'p.error');
+                let chkHsc = validateInput(valHsc, '.hsc', 'p.error');
+
+                if(chkHsa && chkHsb && chkHsc){
+                    valHsa = Number.parseFloat(valHsa);
+                    valHsb = Number.parseFloat(valHsb);
+                    valHsc = Number.parseFloat(valHsc);
+                    // giai PT
+                    let delta = (valHsb*valHsb) - (4*valHsa*valHsc);
+                    if(delta < 0){
+                        $('.result').text('Phuong trinh vo nghiem');
+                    } else if(delta === 0) {
+                        let x = (-valHsb)/(2*valHsa);
+                        $('.result').text(`Phuong trinh co nghiem kep x1=x2 = ${x}`);
+                    } else {
+                        let x1 = ((-valHsb) + Math.sqrt(delta))/(2*valHsa);
+                        let x2 = ((-valHsb) - Math.sqrt(delta))/(2*valHsa);
+                        $('.result').text(`Phuong trinh co 2 nghiem phan biet x1 = ${x1} va x2 = ${x2}`);
+                    }
+                } else {
+                    // xoa het ket qua di
+                    $('.result').empty();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery - 02</title>
+</head>
+<body>
+    <table width="60%" cellspacing="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Ho Ten</th>
+                <th>Tuoi</th>
+                <th>Email</th>
+                <th>SDT</th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="text" class="searchText" id="1" />
+                </th>
+                <th>
+                    <input type="text" class="searchText" id="2" />
+                </th>
+                <th>
+                    <input type="text" class="searchText" id="3" />
+                </th>
+                <th>
+                    <input type="text" class="searchText" id="4" />
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">van teo</td>
+                <td align="center">20</td>
+                <td align="center">test@gmail.com</td>
+                <td align="center">43534534</td>
+            </tr>
+            <tr>
+                <td align="center">ty hoi</td>
+                <td align="center">18</td>
+                <td align="center">ty@gmail.com</td>
+                <td align="center">1222432</td>
+            </tr>
+            <tr>
+                <td align="center">demo</td>
+                <td align="center">22</td>
+                <td align="center">check@gmail.com</td>
+                <td align="center">0232434</td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // ham khoi tao
+            $('.searchText').on('keyup',function(){
+                // bat su kien nguoi nhap du lieu tu ban phim
+                let selfInput = $(this); // chinh la the input
+                // lay gia tri id cua the input dang thao tac?
+                let idInput = selfInput.attr('id').trim();
+                // muc dich la sau de tim cac cot tuong ung - tim du lieu
+                // lay gia tri ma nguoi dung vua nhap vao o input
+                let valSearch = selfInput.val().trim();
+                //console.log(valSearch);
+
+                // tim kiem cac gia tri trong cac cot tuong ung co gia tri nao khop voi du lieu nguoi dung nhap vao tim kiem khong ???
+                $('table tbody tr').each(function(index) {
+
+                    // tim vao cot
+                    let selfRow = $(this);
+                    //console.log(selfRow);
+                    let idCol = selfRow.find(`td:nth-child(${idInput})`).text().trim();
+                    //console.log(idCol);
+                    let s = idCol.indexOf(valSearch);
+                    if(s == -1){
+                        selfRow.hide();
+                    } else {
+                        selfRow.show();
+                    }
+                })
+            });
+        })
+    </script>
+</body>
+</html>
